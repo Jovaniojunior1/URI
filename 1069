@@ -1,0 +1,39 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+int main ()
+{
+    string leia;
+    int n;
+    cin>>n;
+    for(int l=0;l<n;l++)
+    {
+        cin>>leia;
+        int cont=0;
+        stack <char> diamante;
+        for(int i=0;i<leia.length();i++)
+        {
+            if(leia[i]!='.')
+            {
+                if(leia[i]=='<')
+                {
+                    diamante.push(leia[i]);
+                }
+                else
+                {
+                    if(diamante.empty() or  diamante.top()=='>')
+                    {
+                        diamante.push(leia[i]);
+                    }
+                    else
+                    {
+                        diamante.pop();
+                        cont++;
+                    }
+                }
+            }
+        }
+        cout<<cont<<endl;
+    }
+
+}
