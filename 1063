@@ -1,0 +1,68 @@
+#include <iostream>
+#include <stack>
+
+using namespace std;
+int main()
+{
+    int x;
+    char vag[26];
+    char pala[26];
+    stack <char> palavras;
+    while(cin>>x and x)
+    {
+        for(int i=0;i<x;i++)
+        {
+            cin>>vag[i];
+        }
+        for(int i=0;i<x;i++)
+        {
+            cin>>pala[i];
+        }
+
+        int i=0;
+        int l=0;
+        int flag=1;
+        while(true && flag !=4)
+        {
+            bool veri = true;
+            palavras.push(vag[i]);
+            cout<<"I";
+            while(!palavras.empty() && veri == true)
+            {
+                if(palavras.top()==pala[l])
+                {
+                    cout<<"R";
+                    palavras.pop();
+                    l++;
+                }
+                else
+                {
+                    veri = false;
+                }
+
+            }
+            i++;
+            if(i>=x)
+            {
+                flag = 4;
+            }
+
+        }
+        if(palavras.empty())
+        {
+            cout<<endl;
+        }
+        else
+        {
+            cout<<" Impossible"<<endl;
+        }
+
+        while(!palavras.empty())
+        {
+            palavras.pop();
+        }
+    }
+
+
+
+}
